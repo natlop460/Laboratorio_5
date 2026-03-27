@@ -2,6 +2,7 @@ package teccr.justdoitcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -17,6 +18,7 @@ public class JustDoItCloudApplication implements WebMvcConfigurer {
     }
 
     public static void main(String[] args) {
+        //System.out.println(new BCryptPasswordEncoder().encode("123"));
         SpringApplication.run(JustDoItCloudApplication.class, args);
     }
 

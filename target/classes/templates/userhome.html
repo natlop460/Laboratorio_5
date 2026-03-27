@@ -43,45 +43,20 @@
 
     <!-- Right column -->
     <main class="content">
-        <h1>Area Administrativa</h1>
+        <h1>Bienvenido a JustDoIt!</h1>
 
-        <h2>Crear Usuario</h2>
+        <!-- Mostrar tarjeta del usuario -->
 
-        <form th:action="@{/admin/create}" th:object="${user}" method="post" class="login-form">
-
-            <label>Username:</label>
-            <input type="text" th:field="*{username}" required />
-            <br/>
-
-            <label>Password:</label>
-            <input type="password" th:field="*{password}" required />
-            <br/>
-
-            <label>Nombre:</label>
-            <input type="text" th:field="*{name}" required />
-            <br/>
-
-            <label>Email:</label>
-            <input type="email" th:field="*{email}" required />
-            <br/>
-
-            <label>Tipo:</label>
-            <select th:field="*{type}">
-                <option value="REGULAR">REGULAR</option>
-                <option value="ADMIN">ADMIN</option>
-            </select>
-            <br/><br/>
-
-            <button type="submit">Crear Usuario</button>
-
-        </form>
-
-        <div th:if="${param.success != null}">
-            <p>Usuario creado correctamente ✅</p>
+        <div class="user-card">
+            <div class="user-avatar" th:text="${#strings.substring(user.name,0,1)}">U</div>
+            <div class="user-info">
+                <div class="user-name" th:text="${user.name}">Nombre Apellido</div>
+                <div class="user-meta">Usuario: <span th:text="${user.username}">username</span></div>
+                <div class="user-meta">Email: <span th:text="${user.email}">email@example.com</span></div>
+            </div>
         </div>
 
     </main>
-
 
 </div>
 

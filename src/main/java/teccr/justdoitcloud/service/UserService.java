@@ -34,7 +34,7 @@ public class UserService {
         if (username == null || username.trim().isEmpty()) {
             return Optional.empty();
         }
-        return userRepository.findByUserName(username.trim());
+        return userRepository.findByUsername(username.trim());
     }
 
     public Iterable<User> getAllUsers() {
@@ -78,4 +78,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public void save(User user) {
+        user.setCreatedAt(LocalDateTime.now()); // 🔥 esto faltaba
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
 }

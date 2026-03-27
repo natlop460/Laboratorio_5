@@ -21,7 +21,7 @@ public class User implements UserDetails {
     @Id
     private Long id;
     @Column("user_name")
-    private String userName;
+    private String username;
     private String name;
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -40,7 +40,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     public enum Type {
